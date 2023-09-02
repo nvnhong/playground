@@ -1,3 +1,4 @@
-import Popup from "Popup";
+import PopupWithButtons from "Popup";
+import PopupWithCloseButton from "Popup";
 
-export { Popup };
+export { PopupWithButtons, PopupWithCloseButton };

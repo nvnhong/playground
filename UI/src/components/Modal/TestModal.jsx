@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Popup from "./Popup";
-import { styled } from "styled-components";
+import PopupWithButtons from "./PopupWithButtons";
+import PopupWithCloseButton from "./PopupWithCloseButton";
 
 export default function TestModal() {
   /*
@@ -11,17 +11,25 @@ export default function TestModal() {
   */
 
   const [isModal, setIsModal] = useState(false);
+  const [anotherIsModal, setAnotherIsModal] = useState(false);
 
   const handleClick = () => {
     setIsModal(!isModal);
   };
 
+  const handleAnotherClick = () => {
+    setAnotherIsModal(!anotherIsModal);
+  };
+
   return (
-    <BackGround isModal={isModal}>
-      <button onClick={handleClick}>Open Modal</button>
-      {isModal && <Popup handleClick={handleClick} />}
-    </BackGround>
+    <div>
+      <button onClick={handleClick}>Open Modal (Buttons)</button>
+      {isModal && <PopupWithButtons handleClick={handleClick} />}
+
+      <button onClick={handleAnotherClick}>Open Modal (Close Button)</button>
+      {anotherIsModal && (
+        <PopupWithCloseButton handleAnotherClick={handleAnotherClick} />
+      )}
+    </div>
   );
 }
-
-const BackGround = styled.div``;
