@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export default function Popup({ handleClick }) {
+export default function PopupWithButtons({ handleClick }) {
   return (
     <>
       <BackGround />
