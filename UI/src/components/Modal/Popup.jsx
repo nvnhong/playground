@@ -2,37 +2,58 @@ import { styled } from "styled-components";
 
 export default function Popup({ handleClick }) {
   return (
-    <Container>
-      <Content>
-        <h1>Lorem Ipsum</h1>
-        닫기와 확인 버튼 2개가 있고, <br />
-        외부 영역을 눌러도 모달이 닫히지 않아요.
-      </Content>
-      <Buttons>
-        <Button color={"red"} onClick={handleClick}>
-          Cancel
-        </Button>
-        <Button color={"green"}>OK</Button>
-      </Buttons>
-    </Container>
+    <>
+      <BackGround />
+      <ModalContainer>
+        <Content>
+          <h1>Title</h1>
+          <p>Message</p>
+        </Content>
+        <Buttons>
+          <Button color={"red"} onClick={handleClick}>
+            Cancel
+          </Button>
+          <Button color={"green"}>OK</Button>
+        </Buttons>
+      </ModalContainer>
+    </>
   );
 }
 
-const Container = styled.div`
+const BackGround = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+`;
+
+const ModalContainer = styled.div`
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
   width: 350px;
-  border: 1px solid black;
   border-radius: 1rem;
   background-color: white;
-  padding: 30px 20px;
+  padding: 30px;
   user-select: none;
+  box-shadow: 0 0 10px #bbb;
 `;
 
 const Content = styled.div`
-  text-align: center;
   line-height: 1.5;
+
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
 `;
 
 const Buttons = styled.div`
@@ -52,7 +73,8 @@ const Button = styled.button`
   }};
   color: white;
   letter-spacing: 1.5px;
-  transition: all 0.5s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
   &:hover {
     filter: brightness(110%);
