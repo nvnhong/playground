@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export default function PopupWithButtons({ handleClick }) {
+export default function PopupWithButtons({ close }) {
   return (
     <>
       <BackGround />
@@ -10,7 +10,7 @@ export default function PopupWithButtons({ handleClick }) {
           <p>Message</p>
         </Content>
         <Buttons>
-          <Button color={"red"} onClick={handleClick}>
+          <Button color={"red"} onClick={close}>
             Cancel
           </Button>
           <Button color={"green"}>OK</Button>

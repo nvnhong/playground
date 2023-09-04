@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 
-export default function PopupWithCloseButton({ handleAnotherClick }) {
+export default function PopupWithCloseButton({ close }) {
   return (
     <>
-      <BackGround onClick={handleAnotherClick} />
+      <BackGround onClick={close} />
       <ModalContainer>
-        <ButtonContainer onClick={handleAnotherClick}>×</ButtonContainer>
+        <ButtonContainer onClick={close}>×</ButtonContainer>
         <Content>
           <h1>Title</h1>
           <p>Message</p>
